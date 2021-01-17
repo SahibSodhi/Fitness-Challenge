@@ -1,11 +1,7 @@
-# Fitgoal Intro
+# Fitness Challenge
 ------------------------
-Tracks total distance covered by Fitbit user in this year using [simple graphs](https://fitgoal.pkp.io/graphs/347TCH). Activities to track can be selected by the user.
+Tracks total distance covered by Fitbit user in this year using [simple graphs]. Activities to track can be selected by the user.
 
-
-# Setup
-------------------------
-These instructions are for deploying your own version of this app. For normal use, you can just use the [website](https://fitgoal.pkp.io).
 
 Local
 -------
@@ -24,10 +20,6 @@ Below steps are required only if you want to deploy the app to Heroku.
 - Set deploy configuration `heroku config:set APP_SETTINGS=config.StagingConfig`
 - Enable Redis `heroku addons:create heroku-redis:hobby-dev`
 
-Fitbit
--------
-Create a [Fitbit app](https://dev.fitbit.com/apps/new) with below values.
-
 - OAuth 2.0 Application Type: `Server`
 - Callback URL:
 
@@ -37,23 +29,6 @@ http://HEROKU-APP-NAME.herokuapp.com/auth
 https://HEROKU-APP-NAME.herokuapp.com/auth
 ```
 - Add a subscriber (only for heroku or remote deployments)
-```
-Default
-Endpoint URL: https://HEROKU-APP-NAME.herokuapp.com/update
-Type: JSON Body
-Subscriber ID: 1
-```
-- For local setup, create a file named `.secrets` with following template and values of your Fitbit app
-```shell
-export FITBIT_APP_ID="OAuth 2.0 Client ID"
-export FITBIT_APP_SECRET="Client Secret"
-```
-- For heroku setup, run following commands using values of your Fitbit app
-```shell
-heroku config:set FITBIT_APP_ID="OAuth 2.0 Client ID"
-heroku config:set FITBIT_APP_SECRET="Client Secret"
-heroku config:set FITBIT_VERIFICATION_CODE="Subscriber Verification Code"
-```
 
 Setup Database
 --------
@@ -77,4 +52,3 @@ Locally
 Heroku
 --------
 - Push code to Heroku `git push heroku`
-- Verify Subscribers endpoint from your [Fitbit app's page](https://dev.fitbit.com/apps).
