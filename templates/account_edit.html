@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include "bootstrap.html" %}
+  </head>
+  <body>
+    {% with title="Fitgoal - User setup" %}
+    {% include "header.html" %}
+    {% endwith %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <form role="form" method="POST" action="/save">
+            <div class="form-group">
+              <input type="number" name="target" class="form-control" id="target-box" placeholder="Target total distance for the year (in KMs)" style="max-width: 300px;">
+            </div>
+            <input type="hidden" name="access_token" value="{{ access_token }}">
+            <input type="hidden" name="refresh_token" value="{{ refresh_token }}">
+            <input type="hidden" name="token_expiry_at" value="{{ token_expiry_at }}">
+            <h3>Select activities to track</h3>
+            <div class="checkbox">
+              <label><input type="checkbox" name="Walking">Walking</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" name="Running">Running</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" name="Biking">Biking</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" name="Swimming">Swimming</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" name="Rowing">Rowing</label>
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" name="Hiking">Hiking</label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% include "footer.html" %}
+  </body>
+</html>

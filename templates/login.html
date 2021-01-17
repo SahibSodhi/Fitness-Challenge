@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    {% include "bootstrap.html" %}
+  </head>
+  <body>
+    {% with title="Fitgoal - Track distance covered this year" %}
+    {% include "header.html" %}
+    {% endwith %}
+    <center>
+      <a href="{{ fitbit_auth_url }}" class="btn btn-default">
+      <img src="https://www.fitbit.com/content/assets/app2/images/fitbit_logo_icon.svg" width="30"/>&nbsp;&nbsp;Login with Fitbit
+      </a>
+    </center>
+    {% include "footer.html" %}
+  </body>
+</html>

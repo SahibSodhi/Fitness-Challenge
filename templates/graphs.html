@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="newYearGoalsApp">
+<head>
+	<title>Fitgoal {{ fullname }}</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/angular.chartjs/1.1.1/angular-chart.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='graphs.js') }}"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body ng-controller="MainController">
+	{% with title="Fitgoal 2017 for " + fullname %}
+	{% include "header.html" %}
+	{% endwith %}
+	<center id="graphs" ng-init="init( {{ distances }}, {{ target }} )">
+		<center class="caption">Distance covered vs Expected (Kilometers)</center>
+		<canvas id="line" class="chart chart-line" chart-data="data"
+			chart-labels="labels" chart-series="series" 
+			chart-colors="[ '#4CAF50', '#F44336']" legend="true" 
+			chart-options="options" chart-dataset-override="datasetOverride" >
+		</canvas>
+
+		<center class="caption">Cummulative difference (Kilometers)</center>
+		<canvas id="line2" class="chart chart-line" chart-data="diffData"
+			chart-colors="[ '#2196F3']" legend="true" 
+			chart-labels="diffLabels" chart-series="diffSeries" 
+			chart-options="options" chart-dataset-override="datasetOverride" >
+		</canvas>
+	</center>
+	{% include "footer.html" %}
+</body>
+</html>

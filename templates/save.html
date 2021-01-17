@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    {% include "bootstrap.html" %}
+    <meta http-equiv="refresh" content="2; url=/graphs/{{ fitbitid }}" />
+  </head>
+  <body>
+    {% with title="Fitgoal - Setup finish" %}
+    {% include "header.html" %}
+    {% endwith %}
+    <center>
+      <h4>Setup successful for {{ username }}</h4>
+      <p>Redirecting to graph ...</p>
+    </center>
+    {% include "footer.html" %}
+  </body>
+</html>
